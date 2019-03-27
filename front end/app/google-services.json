@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "88406777964",
+    "firebase_url": "https://g2-stockprediction.firebaseio.com",
+    "project_id": "g2-stockprediction",
+    "storage_bucket": "g2-stockprediction.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88406777964:android:2c5fd2cbd9288ebf",
+        "android_client_info": {
+          "package_name": "com.example.g2_stockprediction"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "88406777964-gmocdu4p126p1q1n5cii8a2onvrdmkd3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.g2_stockprediction",
+            "certificate_hash": "4a77cb34bdfffb98260dc3b7ad38394fc25de590"
+          }
+        },
+        {
+          "client_id": "88406777964-9fgru1cvvmm1mapcvgamagfsho7ntjei.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7Bwa2yFFv8a-4Vxr8iFSxWhQJD-f2xKc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "88406777964-9fgru1cvvmm1mapcvgamagfsho7ntjei.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
