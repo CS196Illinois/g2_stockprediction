@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="487dfc4a-de8d-4992-9c1b-076e60c98541" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front end/app/src/main/java/com/example/g2_stockprediction/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../front end/app/src/main/java/com/example/g2_stockprediction/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front end/app/src/main/res/layout/activity_home_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../front end/app/src/main/res/layout/activity_home_page.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../front end/app/src/main/res/layout/listrow.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../front end/app/src/main/res/layout/listrow.xml" afterDir="false" />
-    </list>
+    <list default="true" id="487dfc4a-de8d-4992-9c1b-076e60c98541" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +14,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BasicTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
+            <state relative-caret-position="425">
               <caret line="35" selection-start-line="35" selection-end-line="35" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -32,7 +26,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/sklearn/model_selection/_split.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
+            <state relative-caret-position="481">
               <caret line="2183" selection-start-line="2183" selection-end-line="2183" />
             </state>
           </provider>
@@ -62,7 +56,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-12" />
     <option name="y" value="-12" />
     <option name="width" value="981" />
@@ -74,7 +68,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -86,7 +80,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -167,9 +161,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12874494" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13036437" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -213,16 +208,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BasicTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/sklearn/utils/validation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="263">
@@ -230,9 +215,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BasicTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/sklearn/model_selection/_split.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
+        <state relative-caret-position="481">
           <caret line="2183" selection-start-line="2183" selection-end-line="2183" />
         </state>
       </provider>

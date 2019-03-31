@@ -1,6 +1,7 @@
 package com.example.g2_stockprediction;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -26,6 +28,8 @@ public class HomePage extends AppCompatActivity {
     ListView listView;
     String url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=RHK7YLY3DFGWV052";
     ProgressDialog dialog;
+    private SearchView stocksearch;
+    public String stockname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,7 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 
         listView = (ListView)findViewById(R.id.listView);
+        stocksearch = (SearchView) findViewById(R.id.svStockSearch);
 
         dialog = new ProgressDialog(this);
         dialog.setMessage("Loading....");
@@ -53,6 +58,22 @@ public class HomePage extends AppCompatActivity {
 
         RequestQueue rQueue = Volley.newRequestQueue(HomePage.this);
         rQueue.add(request);
+
+        stocksearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                stockname = query;
+                Intent intent = new Intent(HomePage.this, StockPage.class);
+                intent.putExtra("stockname", stockname);
+                startActivity(intent);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
 
         transparentStatusAndNavigation();
     }
