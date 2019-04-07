@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,11 @@ import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,6 +36,8 @@ public class HomePage extends AppCompatActivity {
     ProgressDialog dialog;
     private SearchView stocksearch;
     public String stockname;
+    private DatabaseReference myRef;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +47,37 @@ public class HomePage extends AppCompatActivity {
         listView = (ListView)findViewById(R.id.listView);
         stocksearch = (SearchView) findViewById(R.id.svStockSearch);
 
+        /**
         dialog = new ProgressDialog(this);
         dialog.setMessage("Loading....");
         dialog.show();
+         **/
 
+
+        myRef = FirebaseDatabase.getInstance().getReference().child("stocks");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ArrayList<Stock> al = new ArrayList<>();
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    String name = child.child("name").getValue().toString();
+                    String price = child.child("close").getValue().toString();
+                    Stock stock = new Stock();
+                    stock.setPrice(price);
+                    stock.setSymbol(name);
+                    al.add(stock);
+                }
+                MyAdapter myAdapter = new MyAdapter(HomePage.this);
+                myAdapter.setStockList(al);
+                listView.setAdapter(myAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        /**
         StringRequest request = new StringRequest(url, new com.android.volley.Response.Listener<String>() {
             @Override
             public void onResponse(String string) {
@@ -56,8 +91,10 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+
         RequestQueue rQueue = Volley.newRequestQueue(HomePage.this);
         rQueue.add(request);
+         **/
 
         stocksearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -76,6 +113,7 @@ public class HomePage extends AppCompatActivity {
         });
 
         transparentStatusAndNavigation();
+
     }
 
     private void transparentStatusAndNavigation() {
@@ -110,6 +148,7 @@ public class HomePage extends AppCompatActivity {
         win.setAttributes(winParams);
     }
 
+/**
     void parseJsonData(String jsonString) {
         try {
             ArrayList<Stock> al = new ArrayList<>();
@@ -135,4 +174,5 @@ public class HomePage extends AppCompatActivity {
 
         dialog.dismiss();
     }
+ **/
 }
