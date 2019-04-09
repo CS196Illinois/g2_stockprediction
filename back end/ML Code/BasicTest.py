@@ -21,7 +21,7 @@ df['PCT_change'] = (df['Adj. Close'] - df['Adj. Open']) / df['Adj. Open'] * 100.
 df = df[['Adj. Close', 'HL_PCT', 'PCT_change', 'Adj. Volume']]
 forecast_col = 'Adj. Close'
 df.fillna(value=-99999, inplace=True)
-forecast_out = int(-5)
+forecast_out = int(10)
 df['label'] = df[forecast_col].shift(-forecast_out)
 
 X = np.array(df.drop(['label'], 1))
@@ -53,7 +53,7 @@ for i in forecast_set:
 
 df['Adj. Close'].plot()
 df['Forecast'].plot()
-print(df['Forecast'].tail())
 plt.legend(loc=4)
 plt.xlabel('Date')
 plt.ylabel('Price')
+print(df['Forecast'].tail())
