@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,14 +20,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -39,6 +45,11 @@ public class HomePageNav extends AppCompatActivity
     private SearchView stocksearch;
     public String stockname;
     private DatabaseReference myRef;
+    private DatabaseReference usersRef;
+    private String currentUser;
+    private ImageView profpic;
+    private TextView name;
+    private TextView email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +135,29 @@ public class HomePageNav extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home_page_nav, menu);
+        profpic = (ImageView) findViewById(R.id.imgProfPicNav);
+        name = (TextView) findViewById(R.id.txtNameNav);
+        email = (TextView) findViewById(R.id.txtEmailNav);
+        currentUser = FirebaseAuth.getInstance().getUid();
+        usersRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUser);
+
+        usersRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String namein = dataSnapshot.child("name").getValue().toString();
+                String emailin = dataSnapshot.child("email").getValue().toString();
+                String profpicin = dataSnapshot.child("profilepic").getValue().toString();
+
+                name.setText(namein);
+                email.setText(emailin);
+                Picasso.with(HomePageNav.this).load(profpicin).into(profpic);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         return true;
     }
 
