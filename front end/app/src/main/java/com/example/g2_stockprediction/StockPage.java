@@ -9,10 +9,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,7 +39,11 @@ public class StockPage extends AppCompatActivity {
     private TextView comp2;
     private TextView comp1Price;
     private TextView comp2Price;
+    private Button home;
+    private Button save;
     private DatabaseReference myRef;
+    private DatabaseReference usersRef;
+    private String currentUserid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +63,47 @@ public class StockPage extends AppCompatActivity {
         comp2 = (TextView) findViewById(R.id.txtComp2);
         comp1Price = (TextView) findViewById(R.id.txtComp1Price);
         comp2Price = (TextView) findViewById(R.id.txtComp2Price);
+        home = (Button) findViewById(R.id.btnHome);
+        save = (Button) findViewById(R.id.btnSave);
         myRef = FirebaseDatabase.getInstance().getReference().child("stocks");
+        currentUserid = FirebaseAuth.getInstance().getUid();
+        usersRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserid);
         Intent intent = getIntent();
         final String stockname = intent.getStringExtra("stockname");
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StockPage.this, HomePageNav.class);
+                startActivity(intent);
+            }
+        });
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        String stocklist = dataSnapshot.child("stocks").getValue().toString();
+                        if (!stocklist.contains(stockname)) {
+                            stocklist = stocklist + ", " + stockname;
+                            usersRef.child("stocks").setValue(stocklist);
+                            Toast.makeText(StockPage.this, "Stock Saved.",
+                                    Toast.LENGTH_SHORT).show();
+                        } else{
+                            Toast.makeText(StockPage.this, "Error. Stock Already Saved.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
