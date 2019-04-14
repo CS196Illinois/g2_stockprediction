@@ -46,6 +46,7 @@ public class MyAdapter extends BaseAdapter {
 
         ((TextView)convertView.findViewById(R.id.Symbol)).setText(stockList.get(position).getSymbol());
         ((TextView)convertView.findViewById(R.id.price)).setText(String.valueOf(stockList.get(position).getPrice()));
+        ((TextView)convertView.findViewById(R.id.pricelow)).setText(String.valueOf(stockList.get(position).getLow()));
 
         return convertView;
     }

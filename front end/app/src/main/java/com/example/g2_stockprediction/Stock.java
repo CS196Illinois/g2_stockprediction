@@ -5,6 +5,16 @@ public class Stock {
     private String symbol;
     private String price;
 
+    public String getLow() {
+        return low;
+    }
+
+    public void setLow(String low) {
+        this.low = low;
+    }
+
+    private String low;
+
     public long getId() {
         return id;
     }
