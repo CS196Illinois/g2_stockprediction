@@ -71,6 +71,7 @@ public class StockPage extends AppCompatActivity {
         Intent intent = getIntent();
         final String stockname = intent.getStringExtra("stockname");
 
+
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -24,6 +24,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -55,6 +56,7 @@ public class HomePageNav extends AppCompatActivity
     private ImageView profpic;
     private TextView name;
     private TextView email;
+    private ArrayList<Stock> al;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,15 +72,17 @@ public class HomePageNav extends AppCompatActivity
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                ArrayList<Stock> al = new ArrayList<>();
+                al = new ArrayList<>();
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     String name = child.child("name").getValue().toString();
                     String price = child.child("close").getValue().toString();
                     String lowin = child.child("currLow").getValue().toString();
+                    String key = child.getKey();
                     Stock stock = new Stock();
                     stock.setPrice(price);
                     stock.setSymbol(name);
                     stock.setLow(lowin);
+                    stock.setKey(key);
                     al.add(stock);
                 }
                 MyAdapter myAdapter = new MyAdapter(HomePageNav.this);
@@ -89,6 +93,15 @@ public class HomePageNav extends AppCompatActivity
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(HomePageNav.this, StockPage.class);
+                String selectedStock = al.get(position).getKey();
+                intent.putExtra("stockname", selectedStock);
+                startActivity(intent);
             }
         });
 
@@ -152,13 +165,17 @@ public class HomePageNav extends AppCompatActivity
         usersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String namein = dataSnapshot.child("name").getValue().toString();
-                String emailin = dataSnapshot.child("email").getValue().toString();
-                String profpicin = dataSnapshot.child("profilepic").getValue().toString();
+                try {
+                    String namein = dataSnapshot.child("name").getValue().toString();
+                    String emailin = dataSnapshot.child("email").getValue().toString();
+                    String profpicin = dataSnapshot.child("profilepic").getValue().toString();
 
-                name.setText(namein);
-                email.setText(emailin);
-                Picasso.with(HomePageNav.this).load(profpicin).into(profpic);
+                    name.setText(namein);
+                    email.setText(emailin);
+                    Picasso.with(HomePageNav.this).load(profpicin).into(profpic);
+                } catch (NullPointerException e) {
+
+                }
             }
 
             @Override

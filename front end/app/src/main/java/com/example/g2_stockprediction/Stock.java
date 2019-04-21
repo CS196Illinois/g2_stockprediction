@@ -4,6 +4,7 @@ public class Stock {
     long id;
     private String symbol;
     private String price;
+    private String key;
 
     public String getLow() {
         return low;
@@ -37,5 +38,13 @@ public class Stock {
 
     public void setPrice(String setPrice){
         this.price = setPrice;
+    }
+
+    public void setKey(String setKey) {
+        this.key = setKey;
+    }
+
+    public String getKey() {
+        return key;
     }
 }
