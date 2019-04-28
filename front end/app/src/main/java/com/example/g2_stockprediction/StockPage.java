@@ -88,7 +88,7 @@ public class StockPage extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         String stocklist = dataSnapshot.child("stocks").getValue().toString();
                         if (!stocklist.contains(stockname)) {
-                            stocklist = stocklist + ", " + stockname;
+                            stocklist = stocklist + "," + stockname;
                             usersRef.child("stocks").setValue(stocklist);
                             Toast.makeText(StockPage.this, "Stock Saved.",
                                     Toast.LENGTH_SHORT).show();
