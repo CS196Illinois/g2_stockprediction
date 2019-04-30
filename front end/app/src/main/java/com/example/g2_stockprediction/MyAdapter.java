@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.g2_stockprediction.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
