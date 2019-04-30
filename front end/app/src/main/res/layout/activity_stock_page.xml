@@ -8,6 +8,20 @@
     tools:context=".StockPage">
 
     <Button
+        android:id="@+id/btnGraph"
+        android:layout_width="111dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:text="Graph"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnHome"
+        app:layout_constraintEnd_toEndOf="@+id/btnHome"
+        app:layout_constraintStart_toStartOf="@+id/btnHome"
+        app:layout_constraintTop_toBottomOf="@+id/txtCurLow" />
+
+    <Button
         android:id="@+id/btnHome"
         android:layout_width="111dp"
         android:layout_height="wrap_content"

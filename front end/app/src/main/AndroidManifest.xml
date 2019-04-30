@@ -9,6 +9,7 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".GraphStock"></activity>
         <activity android:name=".LogInPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

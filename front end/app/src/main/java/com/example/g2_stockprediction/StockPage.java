@@ -41,6 +41,7 @@ public class StockPage extends AppCompatActivity {
     private TextView comp2Price;
     private Button home;
     private Button save;
+    private Button graph;
     private DatabaseReference myRef;
     private DatabaseReference usersRef;
     private String currentUserid;
@@ -65,6 +66,7 @@ public class StockPage extends AppCompatActivity {
         comp2Price = (TextView) findViewById(R.id.txtComp2Price);
         home = (Button) findViewById(R.id.btnHome);
         save = (Button) findViewById(R.id.btnSave);
+        graph = (Button) findViewById(R.id.btnGraph);
         myRef = FirebaseDatabase.getInstance().getReference().child("stocks");
         currentUserid = FirebaseAuth.getInstance().getUid();
         usersRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserid);
@@ -143,6 +145,14 @@ public class StockPage extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+
+        graph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StockPage.this, GraphStock.class);
+                startActivity(intent);
             }
         });
 
