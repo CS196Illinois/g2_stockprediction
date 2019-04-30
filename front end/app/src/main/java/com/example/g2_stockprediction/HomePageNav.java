@@ -213,7 +213,8 @@ public class HomePageNav extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_find) {
-
+            dialog myDialog = new dialog(this);
+            myDialog.show();
         } else if (id == R.id.nav_toppicks) {
 
         } else if (id == R.id.nav_saved) {
@@ -232,6 +233,13 @@ public class HomePageNav extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void searchStock(final String text) {
+        stockname = text;
+        Intent intent = new Intent(HomePageNav.this, StockPage.class);
+        intent.putExtra("stockname", stockname);
+        startActivity(intent);
     }
 
     private void transparentStatusAndNavigation() {
