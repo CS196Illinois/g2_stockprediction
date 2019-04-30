@@ -9,11 +9,11 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".Settings"></activity>
         <activity
             android:name=".TopStockOfTheDay"
             android:label="@string/title_activity_top_stock_of_the_day"
-            android:theme="@style/NoActionBar"></activity>
-        <activity android:name=".StockOfTheDay" />
+            android:theme="@style/NoActionBar" />
         <activity android:name=".GraphStock" />
         <activity android:name=".LogInPage">
             <intent-filter>
@@ -22,7 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomePage" />
         <activity android:name=".SignUpPage" />
         <activity android:name=".StockPage" />
         <activity android:name=".SavedStockPage" />
