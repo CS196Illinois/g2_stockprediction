@@ -62,6 +62,7 @@ public class SignUpPage extends AppCompatActivity {
                                         }
                                     }
                                 });
+                        //deal with the error when no email or password entries
                     } catch (Exception e) {
                         Toast.makeText(SignUpPage.this, "Please enter email and password",
                                 Toast.LENGTH_SHORT).show();

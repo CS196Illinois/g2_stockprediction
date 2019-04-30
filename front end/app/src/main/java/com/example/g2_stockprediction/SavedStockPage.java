@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class SavedStockPage extends AppCompatActivity {
     ListView listView;
-    public String stockname;
     private DatabaseReference usersRef;
     private DatabaseReference myRef;
     private String currentUser;
@@ -37,6 +36,7 @@ public class SavedStockPage extends AppCompatActivity {
         usersRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUser);
         myRef = FirebaseDatabase.getInstance().getReference().child("stocks");
 
+        //retrieved list of saved stock
         usersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -50,6 +50,7 @@ public class SavedStockPage extends AppCompatActivity {
             }
         });
 
+        //put the stock into listview and display it.
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

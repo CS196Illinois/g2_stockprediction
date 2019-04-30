@@ -6,7 +6,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-class dialog extends Dialog {
+/**
+ * handle the search bar of the homepage.
+ */
+public class dialog extends Dialog {
 
     private HomePageNav activity;
     private Button search;
