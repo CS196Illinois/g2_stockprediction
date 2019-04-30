@@ -152,6 +152,7 @@ public class StockPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(StockPage.this, GraphStock.class);
+                intent.putExtra("symbol", stockname);
                 startActivity(intent);
             }
         });

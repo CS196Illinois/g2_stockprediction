@@ -67,6 +67,7 @@ public class HomePageNav extends AppCompatActivity
         stocksearch = (SearchView) findViewById(R.id.svStockSearch);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Home");
 
         myRef = FirebaseDatabase.getInstance().getReference().child("stocks");
         myRef.addValueEventListener(new ValueEventListener() {
