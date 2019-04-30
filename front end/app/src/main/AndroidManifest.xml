@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomePage" />
+        <activity android:name=".SignUpPage" />
         <activity android:name=".StockPage" />
         <activity
             android:name=".HomePageNav"
