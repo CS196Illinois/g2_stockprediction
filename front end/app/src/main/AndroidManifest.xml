@@ -9,7 +9,12 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".GraphStock"></activity>
+        <activity
+            android:name=".TopStockOfTheDay"
+            android:label="@string/title_activity_top_stock_of_the_day"
+            android:theme="@style/NoActionBar"></activity>
+        <activity android:name=".StockOfTheDay" />
+        <activity android:name=".GraphStock" />
         <activity android:name=".LogInPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -216,6 +216,8 @@ public class HomePageNav extends AppCompatActivity
             dialog myDialog = new dialog(this);
             myDialog.show();
         } else if (id == R.id.nav_toppicks) {
+            Intent intent = new Intent(HomePageNav.this, TopStockOfTheDay.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_saved) {
             Intent intent = new Intent(HomePageNav.this, SavedStockPage.class);
