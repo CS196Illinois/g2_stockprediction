@@ -216,6 +216,9 @@ public class HomePageNav extends AppCompatActivity
         } else if (id == R.id.nav_toppicks) {
 
         } else if (id == R.id.nav_saved) {
+            Intent intent = new Intent(HomePageNav.this, SavedStockPage.class);
+            intent.putExtra("currentUser", currentUser);
+            startActivity(intent);
 
         } else if (id == R.id.nav_manage) {
 
