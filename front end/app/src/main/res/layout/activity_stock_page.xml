@@ -7,53 +7,85 @@
     android:background="@color/common_google_signin_btn_text_dark_focused"
     tools:context=".StockPage">
 
-    <Button
-        android:id="@+id/btnGraph"
-        android:layout_width="111dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/transparent"
-        android:text="Graph"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnHome"
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:elevation="20dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnHome"
         app:layout_constraintEnd_toEndOf="@+id/btnHome"
         app:layout_constraintStart_toStartOf="@+id/btnHome"
-        app:layout_constraintTop_toBottomOf="@+id/txtCurLow" />
+        app:layout_constraintTop_toTopOf="@+id/btnHome"></android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="20dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSave"
+        app:layout_constraintEnd_toEndOf="@+id/btnSave"
+        app:layout_constraintStart_toStartOf="@+id/btnSave"
+        app:layout_constraintTop_toTopOf="@+id/btnSave"></android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="20dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnGraph"
+        app:layout_constraintEnd_toEndOf="@+id/btnGraph"
+        app:layout_constraintStart_toStartOf="@+id/btnGraph"
+        app:layout_constraintTop_toTopOf="@+id/btnGraph"></android.support.v7.widget.CardView>
+
+    <Button
+        android:id="@+id/btnGraph"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/common_google_signin_btn_text_light_disabled"
+        android:text="Graph"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnSave"
+        app:layout_constraintTop_toTopOf="@+id/cardView2" />
 
     <Button
         android:id="@+id/btnHome"
-        android:layout_width="111dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="204dp"
-        android:layout_marginLeft="204dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
-        android:background="@android:color/transparent"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginRight="23dp"
+        android:layout_marginBottom="60dp"
+        android:background="@color/common_google_signin_btn_text_light_disabled"
         android:text="Home"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.304"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnSave" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSave"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnSave"
-        android:layout_width="111dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="250dp"
-        android:layout_marginRight="250dp"
-        android:background="@android:color/transparent"
+        android:layout_marginEnd="23dp"
+        android:layout_marginRight="23dp"
+        android:background="@color/common_google_signin_btn_text_light_disabled"
         android:text="Save Stock"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtComp2Price" />
+        app:layout_constraintBottom_toBottomOf="@+id/cardView"
+        app:layout_constraintEnd_toStartOf="@+id/btnGraph"
+        app:layout_constraintStart_toEndOf="@+id/btnHome"
+        app:layout_constraintTop_toTopOf="@+id/cardView" />
 
     <TextView
         android:id="@+id/txtComp2Price"
@@ -247,12 +279,12 @@
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="78dp"
-        android:layout_height="68dp"
-        android:layout_marginTop="35dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="42dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="27dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView5"
         app:layout_constraintEnd_toStartOf="@+id/txtName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -262,9 +294,9 @@
         android:id="@+id/txtName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="101dp"
-        android:layout_marginLeft="101dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginLeft="112dp"
+        android:layout_marginTop="28dp"
         android:text="Google"
         android:textColor="@color/colorAccent"
         android:textSize="37sp"
@@ -279,10 +311,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="143dp"
+        android:layout_marginBottom="377dp"
         android:text="StockUp Predictor:"
         android:textColor="@color/colorAccent"
         android:textSize="25sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -344,15 +378,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_marginLeft="26dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="264dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
+        android:layout_marginBottom="256dp"
         android:text="80% Recommended to Buy"
         android:textColor="@color/colorPrimary"
         android:textSize="25sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

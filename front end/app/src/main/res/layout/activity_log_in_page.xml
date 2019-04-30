@@ -83,6 +83,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/etUsernameLogIn" />
 
+    <android.support.v7.widget.CardView
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:elevation="20dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="50px"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSignUp"
+        app:layout_constraintEnd_toEndOf="@+id/btnSignUp"
+        app:layout_constraintStart_toStartOf="@+id/btnSignUp"
+        app:layout_constraintTop_toTopOf="@+id/btnSignUp">
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:elevation="20dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="50px"
+        app:layout_constraintBottom_toBottomOf="@+id/btnLogIn"
+        app:layout_constraintEnd_toEndOf="@+id/btnLogIn"
+        app:layout_constraintStart_toStartOf="@+id/btnLogIn"
+        app:layout_constraintTop_toTopOf="@+id/btnLogIn">
+
+    </android.support.v7.widget.CardView>
+
     <Button
         android:id="@+id/btnLogIn"
         android:layout_width="wrap_content"
@@ -90,7 +116,7 @@
         android:layout_marginEnd="21dp"
         android:layout_marginRight="21dp"
         android:layout_marginBottom="136dp"
-        android:background="@color/common_google_signin_btn_text_light_default"
+        android:background="@color/common_google_signin_btn_text_light_disabled"
         android:text="Log In"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnSignUp"
@@ -104,7 +130,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:background="@color/common_google_signin_btn_text_light_default"
+        android:background="@color/common_google_signin_btn_text_light_disabled"
         android:text="Sign Up"
         app:layout_constraintBaseline_toBaselineOf="@+id/btnLogIn"
         app:layout_constraintEnd_toEndOf="parent"
