@@ -20,6 +20,7 @@
         <activity android:name=".HomePage" />
         <activity android:name=".SignUpPage" />
         <activity android:name=".StockPage" />
+        <activity android:name=".SavedStockPage" />
         <activity
             android:name=".HomePageNav"
             android:label="@string/title_activity_home_page_nav"
