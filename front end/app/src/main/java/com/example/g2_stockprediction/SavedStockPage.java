@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -56,12 +58,14 @@ public class SavedStockPage extends AppCompatActivity {
                     String name = dataSnapshot.child(stock).child("name").getValue().toString();
                     String price = dataSnapshot.child(stock).child("close").getValue().toString();
                     String lowin = dataSnapshot.child(stock).child("currLow").getValue().toString();
+                    String logoin = dataSnapshot.child(stock).child("background").getValue().toString();
                     String key = dataSnapshot.child(stock).getKey();
                     Stock newStock = new Stock();
                     newStock.setPrice(price);
                     newStock.setSymbol(name);
                     newStock.setLow(lowin);
                     newStock.setKey(key);
+                    newStock.setLogo(logoin);
                     al.add(newStock);
                 }
                 MyAdapter myAdapter = new MyAdapter(SavedStockPage.this);
@@ -69,9 +73,19 @@ public class SavedStockPage extends AppCompatActivity {
                 listView.setAdapter(myAdapter);
             }
 
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(SavedStockPage.this, StockPage.class);
+                String selectedStock = al.get(position).getKey();
+                intent.putExtra("stockname", selectedStock);
+                startActivity(intent);
             }
         });
 
