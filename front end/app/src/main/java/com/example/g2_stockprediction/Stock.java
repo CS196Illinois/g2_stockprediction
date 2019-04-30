@@ -6,6 +6,16 @@ public class Stock {
     private String price;
     private String key;
 
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
+    private String logo;
+
     public String getLow() {
         return low;
     }

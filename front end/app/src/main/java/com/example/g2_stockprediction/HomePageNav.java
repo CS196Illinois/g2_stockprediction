@@ -77,12 +77,14 @@ public class HomePageNav extends AppCompatActivity
                     String name = child.child("name").getValue().toString();
                     String price = child.child("close").getValue().toString();
                     String lowin = child.child("currLow").getValue().toString();
+                    String logoin = child.child("background").getValue().toString();
                     String key = child.getKey();
                     Stock stock = new Stock();
                     stock.setPrice(price);
                     stock.setSymbol(name);
                     stock.setLow(lowin);
                     stock.setKey(key);
+                    stock.setLogo(logoin);
                     al.add(stock);
                 }
                 MyAdapter myAdapter = new MyAdapter(HomePageNav.this);

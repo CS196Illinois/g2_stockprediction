@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.g2_stockprediction.R;
@@ -48,6 +49,7 @@ public class MyAdapter extends BaseAdapter {
         ((TextView)convertView.findViewById(R.id.Symbol)).setText(stockList.get(position).getSymbol());
         ((TextView)convertView.findViewById(R.id.price)).setText(String.valueOf(stockList.get(position).getPrice()));
         ((TextView)convertView.findViewById(R.id.pricelow)).setText(String.valueOf(stockList.get(position).getLow()));
+        Picasso.with(context).load(String.valueOf(stockList.get(position).getLogo())).into((ImageView)convertView.findViewById(R.id.imgBackground));
 
         return convertView;
     }
