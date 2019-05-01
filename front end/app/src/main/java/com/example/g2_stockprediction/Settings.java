@@ -41,7 +41,7 @@ public class Settings extends AppCompatActivity {
         unsavestock = (EditText) findViewById(R.id.etUnsaveStock);
         updatename = (EditText) findViewById(R.id.etChangeName);
 
-        updatename.setOnClickListener(new View.OnClickListener() {
+        update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name = updatename.getText().toString();
@@ -49,7 +49,7 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-        unsavestock.setOnClickListener(new View.OnClickListener() {
+        unsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String remove = unsavestock.getText().toString();
