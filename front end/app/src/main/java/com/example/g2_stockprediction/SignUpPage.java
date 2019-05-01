@@ -16,7 +16,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+//This java file is used for the sign up page
+
 public class SignUpPage extends AppCompatActivity {
+    //Initializing the variables
     private Button signup;
     private EditText username;
     private EditText password;
@@ -27,12 +30,14 @@ public class SignUpPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_page);
 
+        //Assigning the variables
         signup = (Button) findViewById(R.id.SignUp);
         username = (EditText) findViewById(R.id.usernaame);
         password = (EditText) findViewById(R.id.password1);
         passwordcheck = (EditText) findViewById(R.id.password2);
         mAuth = FirebaseAuth.getInstance();
 
+        //This runs when the sign up button is clicked
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

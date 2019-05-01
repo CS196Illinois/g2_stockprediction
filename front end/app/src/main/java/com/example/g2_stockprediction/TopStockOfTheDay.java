@@ -21,7 +21,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+//This java file is used to show the stock of the day
+
 public class TopStockOfTheDay extends AppCompatActivity {
+    //Initializing the variables
     private DatabaseReference myRef;
     private DatabaseReference usersRef;
     private String currentUserid;
@@ -35,17 +38,20 @@ public class TopStockOfTheDay extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Assigning the variables
         myRef = FirebaseDatabase.getInstance().getReference().child("stocks");
         currentUserid = FirebaseAuth.getInstance().getUid();
         usersRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserid);
         stockname = "GOOGL";
         sotd = (TextView) findViewById(R.id.txtSOTD);
 
+        //Changes the name at the top
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(stockname);
 
         transparentStatusAndNavigation();
 
+        //Shows the data for the specific stocks and competitors
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -91,6 +97,7 @@ public class TopStockOfTheDay extends AppCompatActivity {
             }
         });
 
+        //You can save the stock
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

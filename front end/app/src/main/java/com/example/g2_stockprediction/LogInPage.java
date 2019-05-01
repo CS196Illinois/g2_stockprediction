@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LogInPage extends AppCompatActivity {
 
+    //Initializing variables
     private Button login;
     private Button signup;
     private EditText username;
@@ -34,12 +35,14 @@ public class LogInPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_page);
 
+        //Assigning the variables
         login = (Button) findViewById(R.id.btnLogIn);
         signup = (Button) findViewById(R.id.btnSignUp);
         username = (EditText) findViewById(R.id.etUsernameLogIn);
         password = (EditText) findViewById(R.id.etPasswordLogIn);
         mAuth = FirebaseAuth.getInstance();
 
+        //This runs when the login button is clicked
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +77,8 @@ public class LogInPage extends AppCompatActivity {
                 }
             }
         });
+
+        //This runs when the sign up button is clicked
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

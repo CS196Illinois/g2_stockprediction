@@ -20,7 +20,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+//This java file is used as a settings page
+
 public class Settings extends AppCompatActivity {
+    //This is initializing variables
     private DatabaseReference usersRef;
     private String currentUserid;
     private TextView list;
@@ -34,6 +37,7 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        //Assigning variables
         currentUserid = FirebaseAuth.getInstance().getUid();
         usersRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserid);
         list = (TextView) findViewById(R.id.txtSavedList);
@@ -42,6 +46,7 @@ public class Settings extends AppCompatActivity {
         unsavestock = (EditText) findViewById(R.id.etUnsaveStock);
         updatename = (EditText) findViewById(R.id.etChangeName);
 
+        //Updates your name when clicked
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +56,7 @@ public class Settings extends AppCompatActivity {
             }
         });
 
+        //Changes list of saved stocks when clicked
         unsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +78,7 @@ public class Settings extends AppCompatActivity {
             }
         });
 
+        //Prints the list of stock a user has
         usersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

@@ -24,8 +24,11 @@ import com.squareup.picasso.Picasso;
 
 import static java.security.AccessController.getContext;
 
+//This java file is used to display the specific data for a stock
+
 public class StockPage extends AppCompatActivity {
 
+    //Initializing the variables
     private ImageView logo;
     private TextView name;
     private TextView tomHigh;
@@ -51,6 +54,7 @@ public class StockPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stock_page);
 
+        //Assigning the variables
         logo = (ImageView) findViewById(R.id.imgLogo);
         name = (TextView) findViewById(R.id.txtName);
         tomHigh = (TextView) findViewById(R.id.txtTomHigh);
@@ -73,7 +77,7 @@ public class StockPage extends AppCompatActivity {
         Intent intent = getIntent();
         final String stockname = intent.getStringExtra("stockname");
 
-
+        //Takes the user back to home page
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,6 +86,7 @@ public class StockPage extends AppCompatActivity {
             }
         });
 
+        //This allows the user to save a stock to their library
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,6 +113,7 @@ public class StockPage extends AppCompatActivity {
             }
         });
 
+        //This lists out all the data for each of the specific stocks
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -148,6 +154,7 @@ public class StockPage extends AppCompatActivity {
             }
         });
 
+        //This button shows the graph of the specific stock
         graph.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

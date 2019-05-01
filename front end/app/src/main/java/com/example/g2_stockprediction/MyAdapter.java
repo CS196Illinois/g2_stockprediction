@@ -13,6 +13,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+//This java file is used as an adapter class where the stock data is received and displayed
+
 public class MyAdapter extends BaseAdapter {
     Context context;
     LayoutInflater layoutInflater = null;

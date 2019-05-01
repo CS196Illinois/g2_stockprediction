@@ -251,6 +251,7 @@ public class HomePageNav extends AppCompatActivity
         return true;
     }
 
+    //This is used to search for a stock
     public void searchStock(final String text) {
         stockname = text;
         Intent intent = new Intent(HomePageNav.this, StockPage.class);

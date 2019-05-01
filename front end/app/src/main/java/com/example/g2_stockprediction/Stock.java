@@ -1,5 +1,7 @@
 package com.example.g2_stockprediction;
 
+//This java file is used as a Stock class where stock data is saved
+
 public class Stock {
     long id;
     private String symbol;

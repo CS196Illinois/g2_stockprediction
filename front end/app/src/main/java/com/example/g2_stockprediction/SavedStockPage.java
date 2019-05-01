@@ -16,7 +16,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+//This java file is used to display the user's saved stock data
+
 public class SavedStockPage extends AppCompatActivity {
+    //The variables are initialized
     ListView listView;
     private DatabaseReference usersRef;
     private DatabaseReference myRef;
@@ -30,6 +33,7 @@ public class SavedStockPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_stock_page);
 
+        //Assigning variables
         Intent intent = getIntent();
         currentUser = intent.getStringExtra("currentUser");
         listView = (ListView) findViewById(R.id.listvieww);
@@ -80,6 +84,8 @@ public class SavedStockPage extends AppCompatActivity {
 
             }
         });
+
+        //Shows specific stock data when clicked
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
