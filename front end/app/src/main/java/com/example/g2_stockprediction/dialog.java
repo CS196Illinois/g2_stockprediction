@@ -9,8 +9,12 @@ import android.widget.EditText;
 /**
  * handle the search bar of the homepage.
  */
+
+//This java file creates a dialogue box to search for a stock
+
 public class dialog extends Dialog {
 
+    //Instantiatng variables
     private HomePageNav activity;
     private Button search;
     private Button cancel;
@@ -33,6 +37,7 @@ public class dialog extends Dialog {
     }
 
     private void initalize() {
+        //Code to search for a stock
         text = (EditText) findViewById(R.id.text);
         search = (Button) findViewById(R.id.search);
         cancel = (Button) findViewById(R.id.cancel);

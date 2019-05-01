@@ -10,6 +10,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.WebView;
 
+//This java file is used to view a graph of the stock
+
 public class GraphStock extends AppCompatActivity {
     private WebView graphView;
 
@@ -17,6 +19,8 @@ public class GraphStock extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph_stock);
+
+        //Initializing the webview to display the graph
         graphView=(WebView) findViewById(R.id.webView);
         graphView.getSettings().setJavaScriptEnabled(true);
         Intent intent = getIntent();

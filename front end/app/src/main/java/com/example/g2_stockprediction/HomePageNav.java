@@ -42,9 +42,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+//This java file is for the home page
+
 public class HomePageNav extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    //Initializing variables
     ListView listView;
     String url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=RHK7YLY3DFGWV052";
     ProgressDialog dialog;
@@ -63,12 +66,15 @@ public class HomePageNav extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page_nav);
         final Context context = this;
+
+        //Declaring the variables
         listView = (ListView)findViewById(R.id.listView);
         stocksearch = (SearchView) findViewById(R.id.svStockSearch);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Home");
 
+        //Getting all of the stocks which are in the database
         myRef = FirebaseDatabase.getInstance().getReference().child("stocks");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -98,6 +104,8 @@ public class HomePageNav extends AppCompatActivity
 
             }
         });
+
+        //This is to show the details of a specific stock when clicked
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -108,6 +116,7 @@ public class HomePageNav extends AppCompatActivity
             }
         });
 
+        //This is what runs when a stock is searched for
         stocksearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -126,6 +135,7 @@ public class HomePageNav extends AppCompatActivity
 
         transparentStatusAndNavigation();
 
+        //Hidden button right now, but would ideally be used for saving stocks
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,6 +145,7 @@ public class HomePageNav extends AppCompatActivity
             }
         });
 
+        //This is the navigation drawer
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -165,6 +176,7 @@ public class HomePageNav extends AppCompatActivity
         currentUser = FirebaseAuth.getInstance().getUid();
         usersRef = FirebaseDatabase.getInstance().getReference().child("users").child(currentUser);
 
+        //This shows the users profile info in the header
         usersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -189,6 +201,7 @@ public class HomePageNav extends AppCompatActivity
         return true;
     }
 
+    //This function runs when things on the navigation bar is clicked
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
