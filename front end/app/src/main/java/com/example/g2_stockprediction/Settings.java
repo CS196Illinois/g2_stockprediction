@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -46,6 +47,7 @@ public class Settings extends AppCompatActivity {
             public void onClick(View v) {
                 String name = updatename.getText().toString();
                 usersRef.child("name").setValue(name);
+                Toast.makeText(Settings.this, "Name Updated", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -57,8 +59,8 @@ public class Settings extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         String current = dataSnapshot.child("stocks").getValue().toString();
-                        current.replaceAll(remove, "");
-                        current.replaceAll(",,", ",");
+                        current = current.replaceAll(remove, "");
+                        current = current.replaceAll(",,", ",");
                         usersRef.child("stocks").setValue(current);
                     }
 
